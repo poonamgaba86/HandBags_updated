@@ -1,9 +1,11 @@
+com\controller\AddCategoryController.class
 com\controller\ProductController.class
 com\controller\LoginPage.class
 com\controller\LoginController.class
 com\model\User.class
 com\dao\productdao.class
-com\controller\ShowCategory.class
+com\model\Category.class
+com\dao\AddCategoryDAO.class
 com\model\login.class
 com\controller\RegisterController.class
 com\model\Product.class

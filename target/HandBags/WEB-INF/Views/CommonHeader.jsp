@@ -50,20 +50,17 @@
 					        <li><a class="menu" href="ShowProduct">Products </a></li>
 					         <li><a class="menu" href="ContactUs"> Contact us</a></li>
 					         <li><a class="menu" href="#NewArrival">New Arrivals</a></li>
+					       <li>   <a class="menu" href="Login"> Log in</a></li>
+					       <li><a class="menu" href="Register"> Register</a></li>
+    					<li><a class="menu" href="AdminLogin">Admin Login</a></li>
 					  <!--       <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
     </div>
     <button type="submit" class="btn btn-default">Submit</button> -->
-    <div class="nav navbar-nav navbar-right">
-    <a class="menu" href="Login"> Log in</a>  |
-    <a class="menu" href="Register"> Register</a>|
-    <a class="menu" href="AdminLogin">Admin Login</a>
-    </div>
-     
+      
    
 					       
-</form>
 					      </ul> </div>
 </nav>
 
