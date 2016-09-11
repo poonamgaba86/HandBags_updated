@@ -20,17 +20,7 @@
 <c:set var="income" scope="session" value="${check}"/>  
 <c:choose>
 <c:when test="${check}">
-<c:out value="something"/>
 
-</c:when>
- 
-<c:otherwise >
-<c:out value="somethingnot "/>
-</c:otherwise>
-
-</c:choose>
-<c:out value="${income}"/> 
-welcome 2 add
 
 <div class="container">
     <h1 class="well">Add Category</h1>
@@ -54,7 +44,7 @@ welcome 2 add
 						</div>	
 					
 					<input type="submit" class="btn btn-lg btn-info" value="submit" ></input>
-					<input type="submit" class="btn btn-lg btn-info" value="Update"  ></input>						
+							
 					</div>
 					
 				</form:form> 
@@ -64,17 +54,15 @@ welcome 2 add
 				</div>
 	</div>
 	</div>
-
-
-
-		
-	<div ng-app="repeatSample" ng-controller="repeatController">
-search:<input type="text" placeholder="search product" ng-model="searchprd"/>
+		<div ng-app="repeatSample" ng-controller="repeatController">
+search:<input type="text" placeholder="search category" ng-model="searchprd"/>
 <br><br>
 <table class="table table-bordered table-hover table-striped">
  <tr><th>Category Id</th>
 <th>Category name</th>
 <th>Category Desc</th>
+<th>Edit</th>
+<th>Delete</th>
 </tr> 
 <tr class="success" ng-repeat="product in products|filter:searchprd">
                 <td>{{product.categoryid}}</a></td> 
@@ -87,6 +75,59 @@ search:<input type="text" placeholder="search product" ng-model="searchprd"/>
 </tr>
 </table>
 </div> 
+
+
+</c:when>
+ 
+<c:otherwise >
+	<div class="container">
+    <h1 class="well">Update Category</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<form:form method="post" action="UpdateCategory" commandName="Category">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Category Id</label>
+								<form:input  path="categoryid" placeholder="" class="form-control" readonly="true"></form:input>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Category Name</label>
+								<form:input type="text" path="categorynm" placeholder="" class="form-control"></form:input>
+							</div>
+						</div>					
+						<div class="form-group">
+							<label>Description</label>
+							<form:textarea path="categorydesc" placeholder="" rows="3" class="form-control"></form:textarea>
+						</div>	
+					
+					<input type="submit" class="btn btn-lg btn-info" value="Update" ></input>
+							
+					</div>
+					
+				</form:form> 
+				
+				
+ 
+				</div>
+	</div>
+	</div>
+	
+
+
+
+</c:otherwise>
+
+</c:choose>
+
+
+
+	
+
+
+
+		
+
 	
 	
 	<%@include file="AdminFooter.jsp" %>

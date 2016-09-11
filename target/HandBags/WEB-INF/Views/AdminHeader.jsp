@@ -49,7 +49,7 @@
       </li>
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Supplier <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Add Supplier</a></li>
+          <li><a href="SupplierView">Supplier Operation</a></li>
           <li><a href="#">Remove Supplier</a></li>
           
         </ul>
@@ -73,9 +73,18 @@
       </li>
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Category <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="AddCategory">Add Category</a></li>
+          <li><a href="AddCategory">Category Operation</a></li>
           <li><a href="#">Remove Category</a></li>
           <li><a href="#">Update Category</a></li>
+          
+        </ul>
+       
+      </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Product <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="AdminProduct">Product Operation</a></li>
+  <!--         <li><a href="#">Remove Category</a></li>
+          <li><a href="#">Update Category</a></li> -->
           
         </ul>
        
