@@ -1,6 +1,8 @@
 com\controller\AdminProductController.class
 com\dao\SupplierDAO.class
+com\dao\RegisterUserDAO.class
 com\model\Category.class
+com\model\RegisterUser.class
 com\controller\RegisterController.class
 com\model\Product.class
 com\controller\AddCategoryController.class
@@ -11,6 +13,7 @@ com\controller\LoginController.class
 com\controller\SupplierController.class
 com\model\Supplier.class
 com\model\User.class
+com\model\UserCredential.class
 com\dao\productdao.class
 com\dao\AdminProductDAO.class
 com\dao\AddCategoryDAO.class

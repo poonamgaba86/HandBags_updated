@@ -1,10 +1,15 @@
 package com.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.AddCategoryDAO;
@@ -34,7 +39,7 @@ public class AdminProductController {
 		mv.addObject("data2",supjsonlist);
 		String adprod=adProdDAO.listAdProd();
 		mv.addObject("data3",adprod);
-		int id=adProdDAO.sortId();
+	int id=adProdDAO.sortId();
 		mv.addObject("adpid",id);
 		mv.addObject("check",true);
 		return mv;
@@ -53,6 +58,33 @@ public class AdminProductController {
 		mv.addObject("check",true);
 		int id=adProdDAO.sortId();
 		mv.addObject("adpid",id);
+		String path="C:\\JAVA-DT\\HandBag_New\\HandBags\\src\\main\\webapp\\Resources\\img\\";
+		path=path+String.valueOf(aprod.getAproductId())+".jpg";
+		File f=new File(path);
+		MultipartFile filedet=aprod.getPimage();
+		if(!filedet.isEmpty())
+		{
+			try
+			{
+			  byte[] bytes=filedet.getBytes();
+			  System.out.println(bytes.length);
+			  FileOutputStream fos=new FileOutputStream(f);
+              			BufferedOutputStream bs=new BufferedOutputStream(fos);
+              			bs.write(bytes);
+              			bs.close();
+             			 System.out.println("File Uploaded Successfully");
+			}
+			catch(Exception e)
+			{
+				System.out.println("Exception Arised"+e);
+			}
+		}
+		else
+		{
+			System.out.println("File is Empty not Uploaded");
+			
+		}
+
 		return mv;
 		
 	}
@@ -81,11 +113,16 @@ public class AdminProductController {
 		
 		AdminProduct ad =adProdDAO.DispRecord(pid);
 		ModelAndView m = new ModelAndView("AdminProductPage","AdminProduct",ad);
+		
+		System.out.println("pro idddddddddddddddddddddd"+ad.getAproductId());
 		m.addObject("check",false);
 		String catjsonlist=catDAO.ListCategory();
 		m.addObject("data",catjsonlist);
 		String supjsonlist=supDAO.listSupplier();
 		m.addObject("data2",supjsonlist);
+		String apdjsonlist=adProdDAO.listAdProd();
+		m.addObject("data3",apdjsonlist);
+		System.out.println(supjsonlist);
 		return m;
 		
 	}
@@ -99,6 +136,11 @@ public class AdminProductController {
 		ModelAndView m = new ModelAndView("AdminProductPage","AdminProduct",new AdminProduct());
 		m.addObject("check",true);
 		m.addObject("data3",apdjsonlist);
+		String catjsonlist=catDAO.ListCategory();
+		m.addObject("data",catjsonlist);
+		String supjsonlist=supDAO.listSupplier();
+		m.addObject("data2",supjsonlist);
+	
 		int id=adProdDAO.sortId();
 		m.addObject("adpid",id);
 		return m;

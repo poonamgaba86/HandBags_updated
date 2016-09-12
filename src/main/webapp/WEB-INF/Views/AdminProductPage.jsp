@@ -6,6 +6,7 @@
   var catgry = ${data};
   var supp = ${data2};
   var adprod = ${data3};
+  
  
   angular.module('repeatSample', []).controller('repeatController', function($scope)
    {
@@ -17,13 +18,12 @@
                
     });
 </script>
+<c:out value="${check}"></c:out>
+<div class="container" ng-app="repeatSample" >
 <c:choose>
 <c:when test="${check}">
-
-
-<div class="container" ng-app="repeatSample" >
-	<div class="row" ng-controller="repeatController" >
-		<form:form class="form-horizontal" method="post" action="UpdateAdmprod"	commandName="AdminProduct">
+	<div class="row">
+		<form:form class="form-horizontal" method="post" action="AdminProducts"	commandName="AdminProduct" enctype="multipart/form-data">
 			<fieldset>
 
 				<!-- Form Name -->
@@ -62,7 +62,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="declineType">Supplier
 						Name</label>
-					<div class="col-md-6">
+					<div class="col-md-6" ng-controller="repeatController">
 						<form:select class="form-control" path="asupplierId" >
 							<form:option value="-1">Select Supplier Name </form:option>
 							<form:option ng-repeat="sup in supplier" value="{{sup.suppId}}">{{sup.suppName}}</form:option>
@@ -99,7 +99,17 @@
 
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="econLimOil">Image</label>
+					<div class="col-md-5">
+						 <form:input type="file" path="pimage"/>
 
+					</div>
+				</div>
+				
+			
+				
+			
 
 				<!-- Button -->
 				<div class="form-group">
@@ -114,39 +124,11 @@
 		</form:form>
 
 	</div>
-	<div  ng-controller="repeatController" >
-	<div>
-search:<input type="text" placeholder="search category" ng-model="searchprd"/>
-<br><br>
-<table class="table table-bordered table-hover table-striped">
- <tr><th>Product Id</th>
-<th>Product name</th>
-<th>Supplier Id</th>
-<th>Category Id</th>
-<th>Stock</th>
-<th>Price</th>
-<th>Edit</th>
-<th>Delete</th>
-</tr> 
-<tr class="success" ng-repeat="ad in adproduct|filter:searchprd">
-                <td>{{ad.aproductId}}</a></td> 
-                 <td>{{ad.aprodName}}</td>
-                <td>{{ad.asupplierId}}</td>
-                <td> {{ad.acategoryId}}</td>
-                <td> {{ad.astock}}</td>
-                <td> {{ad.aprice}}</td>
-                     <td><a href="UpdateAdmprod?adpid={{ad.aproductId}}">Edit</a></td>
-                <td><a href="deladprod?adpid={{ad.aproductId}}">Delete</a></td>
-               <!--   <td><img src="./Resources/img/{{product.img}}.jpg" height="50px" width="50px"/></td> -->  
-</tr>
-</table>
-</div>
-	</div>
-</div>
+	
 </c:when>
 <c:otherwise >
-<div class="container" ng-app="repeatSample" >
-	<div class="row" ng-controller="repeatController" >
+
+	<div class="row">
 		<form:form class="form-horizontal" method="post" action="UpdateAdmprod"	commandName="AdminProduct">
 			<fieldset>
 
@@ -186,7 +168,7 @@ search:<input type="text" placeholder="search category" ng-model="searchprd"/>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="declineType">Supplier
 						Name</label>
-					<div class="col-md-6">
+					<div class="col-md-6" ng-controller="repeatController">
 						<form:select class="form-control" path="asupplierId" >
 							<form:option value="-1">Select Supplier Name </form:option>
 							<form:option ng-repeat="sup in supplier" value="{{sup.suppId}}">{{sup.suppName}}</form:option>
@@ -238,7 +220,12 @@ search:<input type="text" placeholder="search category" ng-model="searchprd"/>
 		</form:form>
 
 	</div>
-	<div  ng-controller="repeatController" >
+
+
+</c:otherwise>
+
+</c:choose>
+<div  ng-controller="repeatController" >
 	<div>
 search:<input type="text" placeholder="search category" ng-model="searchprd"/>
 <br><br>
@@ -251,6 +238,7 @@ search:<input type="text" placeholder="search category" ng-model="searchprd"/>
 <th>Price</th>
 <th>Edit</th>
 <th>Delete</th>
+<th>Image</th>
 </tr> 
 <tr class="success" ng-repeat="ad in adproduct|filter:searchprd">
                 <td>{{ad.aproductId}}</a></td> 
@@ -261,14 +249,11 @@ search:<input type="text" placeholder="search category" ng-model="searchprd"/>
                 <td> {{ad.aprice}}</td>
                      <td><a href="UpdateAdmprod?adpid={{ad.aproductId}}">Edit</a></td>
                 <td><a href="deladprod?adpid={{ad.aproductId}}">Delete</a></td>
-               <!--   <td><img src="./Resources/img/{{product.img}}.jpg" height="50px" width="50px"/></td> -->  
+                <td><img src="./Resources/img/{{ad.aproductId}}.jpg" height="50px" width="50px"/></td> 
 </tr>
 </table>
 </div>
 	</div>
+
 </div>
-</c:otherwise>
-
-</c:choose>
-
 <%@include file="AdminFooter.jsp" %>

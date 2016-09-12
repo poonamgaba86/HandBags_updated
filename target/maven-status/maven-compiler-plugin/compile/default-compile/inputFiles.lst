@@ -1,8 +1,10 @@
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\User.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\controller\LoginController.java
+C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\dao\RegisterUserDAO.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\dao\SupplierDAO.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\dao\productdao.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\dao\AddCategoryDAO.java
+C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\UserCredential.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\controller\AdminProductController.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\dao\AdminProductDAO.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\login.java
@@ -15,3 +17,4 @@ C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\AdminProduct.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\controller\SupplierController.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\Product.java
 C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\controller\AddCategoryController.java
+C:\JAVA-DT\HandBag_New\HandBags\src\main\java\com\model\RegisterUser.java

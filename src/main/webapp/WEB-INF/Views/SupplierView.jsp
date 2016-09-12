@@ -18,7 +18,7 @@
     });
 </script>
 
-  <<c:out value="{check}"></c:out>
+  
 <c:choose>
 <c:when test="${check}">
 
