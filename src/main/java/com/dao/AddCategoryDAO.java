@@ -1,14 +1,16 @@
 package com.dao;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
+import com.model.AdminProduct;
 import com.model.Category;
 import java.util.*;
 
-import javax.management.Query;
+
 import javax.transaction.Transaction;
 
 @Repository
@@ -70,6 +72,17 @@ public class AddCategoryDAO {
 		 se.close();
 		
 		
+	}
+	public int sortcatId()
+	{
+		
+		Session session=sessionFactory.openSession();
+
+		Query query = session.createQuery("from Category order by categoryid DESC");
+		query.setMaxResults(1);
+	Category last = (Category) query.uniqueResult();
+		int id=last.getCategoryid();
+		return id;
 	}
 
 

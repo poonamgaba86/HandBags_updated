@@ -21,7 +21,7 @@
 <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 40%;
       margin: auto;
   }
   </style>
@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row">
     <div class="col-sm-3" style="background-color:#FF0066">
-      <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/>
+    <a href="Home">  <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/></a>
     </div>
     <div class="col-sm-9" style="background-color:#00FFFF;">
     <h1 class="text-center" style="font-size:56px; font-family:Edwardian Script ITC;color:#FF0066;font-weight: bold" >NuLookWoman</h1>

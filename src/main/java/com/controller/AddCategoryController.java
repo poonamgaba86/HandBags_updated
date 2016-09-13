@@ -24,6 +24,8 @@ public class AddCategoryController
 		//System.out.println("welcome");
 		mv.addObject("check",true);
 		mv.addObject("data",catjsonlist);
+		int id=catDAO.sortcatId();
+		mv.addObject("catid",id);
 		
 		
 		return mv;
@@ -39,6 +41,8 @@ public ModelAndView addcategory(Category cat)
 	
 	m.addObject("data",catjsonlist);
 	m.addObject("check",true);
+	int id=catDAO.sortcatId();
+	m.addObject("catid",id);
 	return m;
 }
 @RequestMapping(value="/DeleteCategory",method=RequestMethod.GET)
@@ -76,6 +80,8 @@ public ModelAndView updatecategory(Category cate)
 	ModelAndView m = new ModelAndView("AddCategory","Category",new Category());
 	m.addObject("check",true);
 	m.addObject("data",catjsonlist);
+	int id=catDAO.sortcatId();
+	m.addObject("catid",id);
 	return m;
 	
 }

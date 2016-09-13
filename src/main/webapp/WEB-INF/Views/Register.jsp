@@ -96,14 +96,14 @@ confirm_password.onkeyup = validatePassword;
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6 col-sm-6 col-md-6">
+					<!-- 		<div class="col-xs-6 col-sm-6 col-md-6"> -->
 								<div class="form-group">
 									<form:label path="Address">Address</form:label>
 									<form:textarea class="form-control" placeholder="Address"
-										path="Address" cols="18"></form:textarea>
+										path="Address" cols="25"></form:textarea>
 
 								</div>
-							</div>
+						<!-- 	</div> -->
 						</div>
 				
 				<input type="submit" value="Register" class="btn btn-info btn-block"

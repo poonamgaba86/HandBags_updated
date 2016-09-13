@@ -24,8 +24,6 @@ public class SupplierDAO {
 		session.beginTransaction();
 		session.save(supp);
 		session.getTransaction().commit();
-//		session.persist(supp);
-//		supp.getSuppId();
 			session.close();
 		
 		
@@ -82,10 +80,6 @@ public class SupplierDAO {
 	{
 		
 		Session session=sessionFactory.openSession();
-//		 se.beginTransaction();
-//		 Criteria c=se.createCriteria(Supplier.class,);
-//		 c.createAlias("sup.", arg1)
-		//Long lastId = ((BigInteger) session.createSQLQuery("SELECT LAST_INSERT_ID()").uniqueResult()).longValue();
 		
 		Query query = session.createQuery("from Supplier order by suppId DESC");
 		query.setMaxResults(1);

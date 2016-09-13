@@ -31,9 +31,18 @@
 	<!-- 	</div> -->	
 		</div>	
 			<div class="col-md-6">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<h4>Productid:{{products.aproductId}}</h4>
 			<h4>Product name: {{products.aprodName}}</h4> 
 			<h4>Product description:{{products.adesciption}} </h4>
+			<h4>Product Price:{{products.aprice}} </h4>
 			<button >ADD TO CART</button>
 				</div>
 		

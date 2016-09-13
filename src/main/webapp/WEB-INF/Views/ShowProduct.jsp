@@ -65,21 +65,22 @@ search:<input type="text" placeholder="search product" ng-model="searchprd"/>
 </script>
 <div ng-app="repeatSample" ng-controller="repeatController">
 	<div class="container" ng-model="searchprd">
-		<div class="row " ng-repeat="product in products|filter:searchprd" >
-			<div class="col-md-6">
+		<div class="row " >
+			<div class="col-md-6" ng-repeat="product in products|filter:searchprd" >
 			<!-- 	<div style="background-color:#E8E8E8;border-style:dotted solid double dashed;" > -->
  				 <a href="ShwPrdtInDetail?adpid={{product.aproductId}}">
 					<img src="./Resources/img/{{product.aproductId}}.jpg" height="200px" width="200px"/>
 				</a> 
 	<!-- 	</div> -->	
-		</div>	
-			<div class="col-md-6">
+	
+		<!-- 	<div class="col-md-6"> -->
 			<!-- <h4>Productid:{{product.aproductId}}</h4> -->
-			<h4>Product name: {{product.aprodName}}</h4> 
-		<!-- 	<h4>Product description:{{product.adesciption}} </h4> -->
-				</div>
+			<h4> {{product.aprodName}}</h4> 
+		 	<h4>{{product.adesciption}} </h4> 
+		 	<h4>Rs.{{product.aprice}} </h4>
+			<!-- 	</div> -->
 		
-
+		</div>
 		
 	</div>
 </div>

@@ -130,6 +130,32 @@ public class AdminProductController {
 	@RequestMapping(value="/UpdateAdmprod",method=RequestMethod.POST)
 	public ModelAndView updateProd(AdminProduct ap)
 	{
+		String path="C:\\JAVA-DT\\HandBag_New\\HandBags\\src\\main\\webapp\\Resources\\img\\";
+		path=path+String.valueOf(ap.getAproductId())+".jpg";
+		File f=new File(path);
+		MultipartFile filedet=ap.getPimage();
+		if(!filedet.isEmpty())
+		{
+			try
+			{
+			  byte[] bytes=filedet.getBytes();
+			  System.out.println(bytes.length);
+			  FileOutputStream fos=new FileOutputStream(f);
+              			BufferedOutputStream bs=new BufferedOutputStream(fos);
+              			bs.write(bytes);
+              			bs.close();
+             			 System.out.println("File Uploaded Successfully");
+			}
+			catch(Exception e)
+			{
+				System.out.println("Exception Arised"+e);
+			}
+		}
+		else
+		{
+			System.out.println("File is Empty not Uploaded");
+			
+		}
 
 		adProdDAO.upAdProd(ap);
 		String apdjsonlist=adProdDAO.listAdProd();
@@ -143,6 +169,7 @@ public class AdminProductController {
 	
 		int id=adProdDAO.sortId();
 		m.addObject("adpid",id);
+		
 		return m;
 		
 	}
