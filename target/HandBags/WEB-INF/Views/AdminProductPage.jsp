@@ -18,7 +18,7 @@
                
     });
 </script>
-<c:out value="${check}"></c:out>
+<!--<c:out value="${check}"></c:out>-->
 <div class="container" ng-app="repeatSample" >
 <c:choose>
 <c:when test="${check}">
@@ -129,7 +129,7 @@
 <c:otherwise >
 
 	<div class="row">
-		<form:form class="form-horizontal" method="post" action="UpdateAdmprod"	commandName="AdminProduct">
+		<form:form class="form-horizontal" method="post" action="UpdateAdmprod"	commandName="AdminProduct" enctype="multipart/form-data">
 			<fieldset>
 
 				<!-- Form Name -->
@@ -205,7 +205,14 @@
 
 					</div>
 				</div>
+			<div class="form-group">
+					<label class="col-md-4 control-label" for="econLimOil">Image</label>
+					<div class="col-md-5">
+						 <form:input type="file" path="pimage"/>
 
+					</div>
+				</div>
+				
 
 				<!-- Button -->
 				<div class="form-group">

@@ -31,7 +31,7 @@
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Category Id</label>
-								<form:input  path="categoryid" placeholder="" class="form-control"></form:input>
+								<form:input  path="categoryid" placeholder="" class="form-control" readonly="true" value="${catid+1}"></form:input>
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Category Name</label>

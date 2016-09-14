@@ -1,4 +1,5 @@
 com\controller\AdminProductController.class
+com\dao\UserCredentialDAO.class
 com\dao\SupplierDAO.class
 com\dao\RegisterUserDAO.class
 com\model\Category.class

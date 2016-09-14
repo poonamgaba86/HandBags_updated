@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row">
     <div class="col-sm-3" style="background-color:#FF0066">
-      <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/>
+    <a href="Home">  <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/></a>
     </div>
     <div class="col-sm-9" style="background-color:#00FFFF;">
     <h1 class="text-center" style="font-size:56px; font-family:Edwardian Script ITC;color:#FF0066;font-weight: bold" >NuLookWoman</h1>
@@ -50,7 +50,7 @@
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Supplier <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="SupplierView">Supplier Operation</a></li>
-          <li><a href="#">Remove Supplier</a></li>
+  <!--         <li><a href="#">Remove Supplier</a></li> -->
           
         </ul>
       </li>
@@ -62,20 +62,20 @@
           
         </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Stock <span class="caret"></span></a>
+  <!--     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Stock <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Add Product</a></li>
           <li><a href="#">Remove Product</a></li>
           <li><a href="#">Update Product</a></li>
           
-        </ul>
+        </ul> -->
        
       </li>
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Category <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="AddCategory">Category Operation</a></li>
-          <li><a href="#">Remove Category</a></li>
-          <li><a href="#">Update Category</a></li>
+    <!--       <li><a href="#">Remove Category</a></li>
+          <li><a href="#">Update Category</a></li> -->
           
         </ul>
        

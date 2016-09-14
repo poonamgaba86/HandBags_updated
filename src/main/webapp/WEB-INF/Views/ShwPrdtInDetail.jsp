@@ -22,6 +22,7 @@
 
 <div ng-app="repeatSample" ng-controller="repeatController">
 	<div class="container" ng-model="searchprd">
+		<form:form class="form-horizontal" method="post" action="AddToCart"	commandName="AdminProduct" enctype="multipart/form-data">
 		<div class="row "  >
 			<div class="col-md-6">
 			<!-- 	<div style="background-color:#E8E8E8;border-style:dotted solid double dashed;" > -->
@@ -43,12 +44,19 @@
 			<h4>Product name: {{products.aprodName}}</h4> 
 			<h4>Product description:{{products.adesciption}} </h4>
 			<h4>Product Price:{{products.aprice}} </h4>
-			<button >ADD TO CART</button>
+			 <a href="AddToCart?adpid={{products.aproductId}}">
+					<img src="./Resources/img/cart.jpg" />
+				</a> 
+				 <a href="">
+					<img src="./Resources/img/buy.png" />
+				</a> 
+		
 				</div>
 		
 			
 		
 	</div>
+	</form:form>
 	
 </div>
 </div>

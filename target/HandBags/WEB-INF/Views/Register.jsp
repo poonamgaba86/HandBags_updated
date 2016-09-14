@@ -72,17 +72,17 @@ confirm_password.onkeyup = validatePassword;
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<div class="form-group">
 									<form:label path="password">Password</form:label>
-									<form:input path="password" name="password" id="password"
+									<form:password path="password" name="password" id="password"
 										class="form-control input-sm" placeholder="Password"
-										onchange="validatePassword()"></form:input>
+										onchange="validatePassword()"></form:password>
 								</div>
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<div class="form-group">
 									<form:label path="conPassword">Confirm Password</form:label>
-									<form:input path="conPassword" name="password_confirmation"
+									<form:password path="conPassword" name="password_confirmation"
 										id="password_confirmation" class="form-control input-sm"
-										placeholder="Confirm Password" onkeyup="validatePassword()"></form:input>
+										placeholder="Confirm Password" onkeyup="validatePassword()"></form:password>
 								</div>
 							</div>
 						</div>
@@ -96,14 +96,14 @@ confirm_password.onkeyup = validatePassword;
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6 col-sm-6 col-md-6">
+					<!-- 		<div class="col-xs-6 col-sm-6 col-md-6"> -->
 								<div class="form-group">
 									<form:label path="Address">Address</form:label>
 									<form:textarea class="form-control" placeholder="Address"
-										path="Address" cols="18"></form:textarea>
+										path="Address" cols="25"></form:textarea>
 
 								</div>
-							</div>
+						<!-- 	</div> -->
 						</div>
 				
 				<input type="submit" value="Register" class="btn btn-info btn-block"

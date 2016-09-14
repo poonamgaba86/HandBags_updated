@@ -69,7 +69,7 @@ public class SupplierController {
 	}
 
 	@RequestMapping(value="/UpdateSupplier",method=RequestMethod.POST)
-	public ModelAndView updatecategory(Supplier s)
+	public ModelAndView updatesupp(Supplier s)
 	{
 
 		supDAO.UpRecord(s);

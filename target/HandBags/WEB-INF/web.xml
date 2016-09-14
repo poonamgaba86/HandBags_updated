@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
@@ -13,6 +14,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
 		<param-value>/WEB-INF/Hibernatecfg.xml</param-value>
+		<param-value>/WEB-INF/SecurityImp.xml</param-value> 
 </context-param>
   <listener>
 		<listener-class>
