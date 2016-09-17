@@ -13,31 +13,45 @@ import com.model.CartDetail;
 public class CartDAO {
 	@Autowired
 	 SessionFactory sessionFactory;
-	public String addcart(CartDetail cd)
+	public CartDetail addcart(CartDetail cd)
 	{
 		Session session= sessionFactory.openSession();
 		
 		session.beginTransaction();
 		session.save(cd);
 		session.getTransaction().commit();
-		Gson gs= new Gson();
-		String cartDe=gs.toJson(cd);
+	//	Gson gs= new Gson();
+	//	String cartDe=gs.toJson(cd);
 		session.close();
-		return cartDe;
+	//	return cartDe;
+		return cd;
 	
 	}
 	public void remcart(int cartid)
 	{
-		Session session= sessionFactory.openSession();
-		
-		session.beginTransaction();
-		
-		CartDetail cd=(CartDetail)session.get(CartDetail.class,cartid);
-		session.delete(cd);
-		session.getTransaction().commit();
-		session.close();
-	
+//		Session session= sessionFactory.openSession();
+//		
+//		session.beginTransaction();
+//		
+//		CartDetail cd=(CartDetail)session.get(CartDetail.class,cartid);
+//		session.delete(cd);
+//		session.getTransaction().commit();
+//		session.close();
+//	
 	}
+//	public String showcart(CartDetail cd)
+//	{
+//		Session session= sessionFactory.openSession();
+//		
+////		session.beginTransaction();
+////		session.save(cd);
+////		session.getTransaction().commit();
+////		Gson gs= new Gson();
+////		String cartDe=gs.toJson(cd);
+//		session.close();
+//		return cartDe;
+//	
+//	}
 	
 
 }

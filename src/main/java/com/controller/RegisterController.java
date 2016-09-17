@@ -37,11 +37,12 @@ public class RegisterController {
 		
 		String password=ru.getPassword();
 		String uname=ru.getUserName();
-		String role="USER_ROLE";
+		String role="ROLE_USER";
 		boolean e=true;
 		rDAO.saveUser(ru);
 		UserCredential ucred= new UserCredential();
-		ucred.setUserId(uname);
+		ucred.setUserName(uname);
+		
 		ucred.setPassword(password);
 		ucred.setRole(role);
 		ucred.setEnable(e);

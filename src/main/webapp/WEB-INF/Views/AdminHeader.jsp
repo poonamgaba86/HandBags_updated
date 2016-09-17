@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +22,7 @@
 <div class="container">
     <div class="row">
     <div class="col-sm-3" style="background-color:#FF0066">
-    <a href="Home">  <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/></a>
+     <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/>
     </div>
     <div class="col-sm-9" style="background-color:#00FFFF;">
     <h1 class="text-center" style="font-size:56px; font-family:Edwardian Script ITC;color:#FF0066;font-weight: bold" >NuLookWoman</h1>
@@ -89,6 +90,13 @@
         </ul>
        
       </li>
+      <li>
+        <li><a href="perform_logout">Log Out </a></li>
+        <li>welcome   ${userid}</li>
+      
+       
+      </li>
+    
       
      
      

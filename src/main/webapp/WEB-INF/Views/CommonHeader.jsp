@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -51,8 +52,10 @@
 					         <li><a class="menu" href="ContactUs"> Contact us</a></li>
 					         <li><a class="menu" href="#NewArrival">New Arrivals</a></li>
 					       <li>   <a class="menu" href="Login"> Log in</a></li>
+					       <li>   <a class="menu" href="perform_logout"> Log Out</a></li>
 					       <li><a class="menu" href="Registerview"> Register</a></li>
-    					<li><a class="menu" href="AdminLogin">Admin Login</a></li>
+    				<!--  	<li><a class="menu" href="AdminLogin">Admin Login</a></li> -->
+    				<li> Welcome user  ${userid}</li>
 					  <!--       <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">

@@ -14,8 +14,7 @@
                  {
                 	 $scope.products.qty=Number($scope.value);
                  };
-                 
-   
+               
               
     }]);
 </script>
@@ -38,31 +37,34 @@
 					<img src="./Resources/img/{{product.pid}}.jpg" height="100px" width="100px"/>
 				</a>
 				 </td> 
-            <td> {{product.pname}} <br><br><a href="RemoveFromCart?pid={{product.pid}}">Remove</a>   </td>
-            <td><form:input path="qty" ng-model="value"  ng-change="change(value)"/></td>
+            <td> {{product.pname}}  </td>
+            <td><form:label path="qty"/>{{value}}</td>
                 
                 <td>{{product.price}}</td>
                 <td><form:label path="total">{{value*product.price}}</form:label></td>
                 
                   
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-
-
-<td>Grand Total:</td></tr>
 </table>
 </div> 
-
+    <div class="col-md-10 ">
+  <div class="pull-right">
+  <a href="AddToCartgoback">Edit</a></div>  
+      </div>
+<br><br>
+<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6"> 
+								<div class="form-group">
+									<form:label path="">Address</form:label>
+									
+										${useraddr}
+								</div>
+						</div> 
+						</div>
 </form:form> 
+<div class="pull-right">
+<a href="PaymentConfirmed"><img src="Resources/img/pay.png"></img></a>
 </div>
-<div class="container">
-  
-  <a href="ShowProduct"><img src="Resources/img/Continue-Shopping.png"></a>
-  <a href="OrderConfirmation"><img src="Resources/img/place.jpg"></a>
-  
 </div>
+
 <%@include file="CommonFooter.jsp" %>

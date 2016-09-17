@@ -12,16 +12,16 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form:form id="loginform" class="form-horizontal" role="form" commandName="login" method="post" action="perform_login">
+                        <form id="loginform" class="form-horizontal" role="form" method="post" action="perform_login">
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <form:input id="username" type="text" class="form-control" path="username" value="" placeholder="username or email" required="required"></form:input>                                        
+                                        <input id="username" type="text" class="form-control" name="username" value="" placeholder="username or email" required="required">                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <form:input id="login-password" type="password" class="form-control" path="password" name="password" placeholder="password" required="required"></form:input>
+                                        <input id="login-password" type="password" class="form-control" name="password" name="password" placeholder="password" required="required">
                                     </div>
                                     
 
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                 </div>    
-                            </form:form>     
+                            </form>     
 
 
 </div>

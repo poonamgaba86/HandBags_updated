@@ -1,10 +1,27 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dao.AdminProductDAO;
+import com.model.CartDetail;
 @Controller
 public class LoginController {
 
+	@Autowired
+	AdminProductDAO aDAO;
+	@Autowired
+	
+	
 	@RequestMapping("/Home")
 	public String showhome() 
 	{
@@ -27,15 +44,47 @@ public class LoginController {
 	{
 	return "Register";
 	}
-//	@RequestMapping("/Login")
-//	public String showLogin() 
-//	{
-//	return "Login";
-//	}
-	@RequestMapping("/AdminLogin")
-	public String showadminlogin() 
+
+	@SuppressWarnings("unchecked")
+	
+	@RequestMapping("/Loginchecking")
+	public String showadminlogin(HttpSession session,Model model) 
 	{
-	return "AdminLogin";
-	}
+
+		
+			String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+			
+			//session.setAttribute("LoggedIn", "true");
+
+			Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+			String page="";
+			String role="ROLE_USER";
+			for (GrantedAuthority authority : authorities) 
+			{
+			  
+			     if (authority.getAuthority().equals(role)) 
+			     {
+			    	 String jsondata= aDAO.listAdProd();
+			    	 model.addAttribute("dat",jsondata);
+			    	 session.setAttribute("UserLoggedIn", "true");
+			    	 session.setAttribute("userid",userName);
+				 //page="Cart";
+			    	 page="ShowProduct";
+			    	 ArrayList<CartDetail> ob = new ArrayList<CartDetail>();
+			    	 session.setAttribute("mycart",ob);
+			    	// session.setAttribute("cartsize",cartDAO.cartsize((int)session.getAttribute("userId")));
+			     }
+			     else 
+			     {
+			    	 session.setAttribute("Administrator", "true");
+			    	 session.setAttribute("userid",userName);
+			    	 page="AdminLogin";
+				
+			    }
+			}
+			return page;
+		}
+
+	
 	
 }

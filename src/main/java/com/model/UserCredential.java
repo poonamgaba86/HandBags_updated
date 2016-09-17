@@ -8,18 +8,18 @@ import javax.persistence.Id;
 public class UserCredential {
 	
 	@Id
-	private String userId;
+	private String userName;
 	@Column
 	private String password;
 	@Column
 	private boolean enable;
 	@Column
 	private String role;
-	public String getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -38,6 +38,7 @@ public class UserCredential {
 	}
 	public void setRole(String role) {
 		this.role = role;
-	} 
+	}
+	
 
 }
