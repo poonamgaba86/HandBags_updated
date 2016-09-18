@@ -2,7 +2,7 @@ package com.model;
 
 public class Product {
 
-	private Integer productid;
+private Integer productid;
 private String name;
 private String description;
 private String supplierid;

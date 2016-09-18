@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.model.AdminProduct;
 import com.model.RegisterUser;
 
 @Repository
@@ -31,6 +32,19 @@ public class RegisterUserDAO
 		String addr = ((RegisterUser) cr.add(Restrictions.like("userName", uname)).list().get(0)).getAddress();
 		return addr;
 
+	}
+	public RegisterUser display(String uname)
+	{
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		RegisterUser ru=(RegisterUser)session.get(RegisterUser.class,uname);
+		session.getTransaction().commit();
+		session.close();
+		
+		
+		return ru;
+		
+		
 	}
 
 }

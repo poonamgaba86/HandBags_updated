@@ -55,6 +55,9 @@ public class AddCategoryDAO {
 		Session se=sessionFactory.openSession();
 		 se.beginTransaction();
 		Category cat=(Category)se.get(Category.class,cid);
+		se.getTransaction().commit();
+		se.close();
+		
 		return cat;
 		
 	}

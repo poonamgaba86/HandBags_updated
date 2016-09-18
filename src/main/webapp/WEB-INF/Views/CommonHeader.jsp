@@ -25,6 +25,18 @@
       width: 40%;
       margin: auto;
   }
+  .wrapper {
+  display: inline-block;
+  margin-top: 25px;
+  position: relative;  
+}
+
+.wrapper img {
+  display: block;
+  max-width:100%;
+}
+
+
   </style>
 
 </head>
@@ -34,10 +46,23 @@
     <div class="col-sm-3" style="background-color:#FF0066">
     <a href="Home">  <img src="Resources/img/logo2.png" alt="" class="img-responsive logo"/></a>
     </div>
-    <div class="col-sm-9" style="background-color:#00FFFF;">
+    <div class="col-sm-8" style="background-color:#00FFFF;">
     <h1 class="text-center" style="font-size:56px; font-family:Edwardian Script ITC;color:#FF0066;font-weight: bold" >NuLookWoman</h1>
-      <h1 class="text-center" style="font-size:76px; font-family:Edwardian Script ITC;color:#FF0066">HandBags To Shape Your Life</h1>
+      <h1 class="text-center" style="font-size:71px; font-family:Edwardian Script ITC;color:#FF0066"font-weight: bold>HandBags To Shape Your Life</h1>
     </div>
+    <div class="col-sm-1" style="background-color:#00FFFF;">
+ <div class="wrapper">
+ <br>
+ <br>
+ <br>
+  <br><a href="GoToCart">
+  <img src="Resources/img/cart2.jpg" alt="" />
+  
+  <c:if test="${not empty count}">
+ <center> ${count}</center>
+  </c:if></a>
+  </div>
+
   </div>
 </div>
 <nav class="navbar navbar-default">
@@ -51,11 +76,17 @@
 					        <li><a class="menu" href="ShowProduct">Products </a></li>
 					         <li><a class="menu" href="ContactUs"> Contact us</a></li>
 					         <li><a class="menu" href="#NewArrival">New Arrivals</a></li>
+					          <c:if test="${not sessionScope.UserLoggedIn}">
 					       <li>   <a class="menu" href="Login"> Log in</a></li>
+					         </c:if>
+					          <c:if test="${sessionScope.UserLoggedIn}">  
 					       <li>   <a class="menu" href="perform_logout"> Log Out</a></li>
+					        </c:if>
+					         <c:if test="${not sessionScope.UserLoggedIn}">
 					       <li><a class="menu" href="Registerview"> Register</a></li>
+					          </c:if>
     				<!--  	<li><a class="menu" href="AdminLogin">Admin Login</a></li> -->
-    				<li> Welcome user  ${userid}</li>
+    				<li>	<a> Welcome   ${userid}</a></li>
 					  <!--       <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
