@@ -37,6 +37,7 @@ public class RegisterController {
 		
 		String password=ru.getPassword();
 		String uname=ru.getUserName();
+		
 		String role="ROLE_USER";
 		boolean e=true;
 		rDAO.saveUser(ru);

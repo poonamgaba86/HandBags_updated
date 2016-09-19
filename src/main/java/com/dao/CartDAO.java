@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,7 @@ import com.model.CartDetail;
 public class CartDAO {
 	@Autowired
 	 SessionFactory sessionFactory;
-	public CartDetail addcart(CartDetail cd)
+	public void addcart(CartDetail cd)
 	{
 		Session session= sessionFactory.openSession();
 		
@@ -23,9 +25,7 @@ public class CartDAO {
 	//	Gson gs= new Gson();
 	//	String cartDe=gs.toJson(cd);
 		session.close();
-	//	return cartDe;
-		return cd;
-	
+
 	}
 	public void remcart(int cartid)
 	{

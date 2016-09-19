@@ -78,7 +78,7 @@ List is empty
 
 	<a href="ShowProduct"><img
 		src="Resources/img/Continue-Shopping.png"></a> <a
-		href="OrderConfirmation"><img src="Resources/img/place.jpg"></a>
+		href="OrderPlaced"><img src="Resources/img/place.jpg"></a>
 
 </div>
 <%@include file="CommonFooter.jsp"%>

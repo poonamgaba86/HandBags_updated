@@ -40,6 +40,13 @@
 					<td>{{product.price}}</td>
 					<td><form:label path="total">{{product.qty*product.price}}</form:label></td>
 				</tr>
+				<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Grand Total:${sessionScope.grandtotal}</td>
+				</tr>
 			
 			</table>
 		</div>
@@ -48,12 +55,15 @@
 				<a href="AddToCartgoback">Edit</a>
 			</div>
 		</div>
+		
 		<br>
 		<br>
+		<br>
+	<b>	Customer Information</b>
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<table>
+					<table  class="table table-bordered">
 						<tr>
 							<td>First Name :</td>
 							<td>${info.firstName}</td>
@@ -89,7 +99,7 @@
 		</div>
 	</form:form>
 	<div class="pull-right">
-		<a href="PaymentConfirmed"><img src="Resources/img/pay.png"></img></a>
+		<a href="OrderConfirmed"><img src="Resources/img/confirm.jpg"></img></a>
 	</div>
 </div>
 

@@ -1,9 +1,12 @@
 package com.model;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Repository;
@@ -11,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class CartDetail {
+	
 	
 	@Id
 	@GeneratedValue
@@ -22,6 +26,9 @@ public class CartDetail {
 	private float total;
 	@Transient
 	private MultipartFile pimage;
+//	@OneToOne(cascade = CascadeType.ALL)
+ //   @JoinColumn(name = "orderId")
+	private int orderID;
 	public CartDetail()
 	{
 	
@@ -68,11 +75,13 @@ public class CartDetail {
 	public void setPimage(MultipartFile pimage) {
 		this.pimage = pimage;
 	}
+	public int getOrderID() {
+		return orderID;
+	}
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
 	
-	
-	
-	
-
 }
 
 

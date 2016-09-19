@@ -1,9 +1,11 @@
 package com.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.AdminProductDAO;
 import com.dao.CartDAO;
+import com.dao.OrderDetailsDAO;
 import com.dao.RegisterUserDAO;
 import com.google.gson.Gson;
 import com.model.AdminProduct;
 import com.model.CartDetail;
+import com.model.OrderDetails;
+import com.model.RegisterUser;
 
 @Controller
 
@@ -33,6 +38,8 @@ public class CartController {
 
 	@Autowired
 	RegisterUserDAO rdao;
+	@Autowired
+	OrderDetailsDAO oDAO;
 	
 	public int getGrandTotal(ArrayList<CartDetail> cd)
 	{
@@ -55,6 +62,9 @@ public class CartController {
 		cd.setPid(adp.getAproductId());
 		cd.setPname(adp.getAprodName());
 		cd.setPrice(adp.getAprice());
+		
+		// to put the data in database also
+	//	cDAO.addcart(cd);
 		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
 		li.add(cd);
 		int size = li.size();
@@ -97,10 +107,15 @@ public class CartController {
 
 	}
 
-	@RequestMapping(value = "/OrderConfirmation", method = RequestMethod.GET)
-	public ModelAndView orderConfirm(HttpSession session) {
+	@RequestMapping(value = "/OrderPlaced", method = RequestMethod.GET)
+	public ModelAndView orderplaced(HttpSession session) {
 		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
-
+		
+//			System.out.println(cd.getPid());
+//			System.out.println(cd.getQty());
+//			System.out.println(cd.getTotal());
+//			System.out.println(cd.getPrice());
+		
 		Gson gsonli = new Gson();
 		String gs = gsonli.toJson(li);
 		session.setAttribute("cart", gs);
@@ -129,16 +144,64 @@ public class CartController {
 
 	}
 
-	@RequestMapping(value = "/PaymentConfirmed", method = RequestMethod.GET)
-	public String paymentconfirm(HttpSession session) {
-
+	@RequestMapping(value = "/OrderConfirmed", method = RequestMethod.GET)
+	public ModelAndView OrderConfirmed(HttpSession session) 
+	{
+		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
+	
+//		for(CartDetail cd:li)
+//		{
+//			cDAO.addcart(cd);
+//		}
+//		
 		
-		return "/PaymentConfirmed";
+		
+		//oDAO.addOrderDetails();
+		ModelAndView mv = new ModelAndView("PaymentConfirmed","CartDetail",new CartDetail());
+		
+		return mv;
 
 	}
 
-	@RequestMapping(value = "/Thanku", method = RequestMethod.GET)
-	public String Thanku(HttpSession session) {
+	@RequestMapping(value = "/Thanku", method = RequestMethod.POST)
+	public String Thanku(HttpSession session,HttpServletRequest request)
+	{
+		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
+		 RegisterUser r=rdao.display((String) session.getAttribute("userid"));
+       
+       String email= r.getEmailId();
+       String phon= r.getMobileNo();
+       String addr=r.getAddress();
+       String user= r.getFirstName();
+       
+       String fullAddress= user +"\t"+addr +"\t"+phon;
+      
+       OrderDetails d= new OrderDetails();
+		d.setPaymentMode("Cash on Delivery");
+       d.setUserId(session.getAttribute("userid").toString());
+       d.setOrderDate(new Date());
+       d.setOrderStatus("processing");
+       
+       String f = session.getAttribute("grandtotal").toString();
+       
+       d.setGrandTotal(Integer.valueOf(f));
+       d.setAddress(fullAddress);
+       
+       oDAO.addOrderDetails(d);
+       System.out.print("Order saved");
+       int ordId=d.getOrderId();
+       for(CartDetail cd:li)
+       {
+    	   cd.setOrderID(ordId);
+    	  cDAO.addcart(cd);
+    	  System.out.print("Cart detail saved");
+    	   
+       }
+       
+       
+       
+        
+		
 
 		
 		return "/ThankuPage";
@@ -174,6 +237,7 @@ public class CartController {
 			if (d.getPid() == pid) 
 			{
 				d.setQty(qty);
+				d.setTotal(d.getQty()*d.getPrice());
 				lit.set(d);
 				break;
 			}

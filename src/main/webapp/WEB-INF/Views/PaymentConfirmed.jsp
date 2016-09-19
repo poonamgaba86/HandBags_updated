@@ -4,7 +4,7 @@
 
 <%@include file="CommonHeader.jsp" %>
 <div class="container">
-  <form class="form-horizontal" role="form">
+  <form class="form-horizontal" role="form" action="Thanku" method="post">
     <fieldset>
       <legend>Payment</legend>
       <div class="form-group">
@@ -16,7 +16,7 @@
       <div class="form-group">
         <label class="col-sm-3 control-label" for="card-number">Card Number</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+          <input type="text" class="form-control" name="cardN" id="card-number" placeholder="Debit/Credit Card Number">
         </div>
       </div>
       <div class="form-group">
@@ -24,7 +24,7 @@
         <div class="col-sm-9">
           <div class="row">
             <div class="col-xs-3">
-              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+              <select class="form-control col-sm-2" name="exM" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -41,7 +41,7 @@
               </select>
             </div>
             <div class="col-xs-3">
-              <select class="form-control" name="expiry-year">
+              <select class="form-control" name="exY">
                 <option value="13">2013</option>
                 <option value="14">2014</option>
                 <option value="15">2015</option>
@@ -61,12 +61,12 @@
       <div class="form-group">
         <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+          <input type="text" class="form-control" name="cvN" id="cvv" placeholder="Security Code">
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-         <a href="Thanku"><img src="Resources/img/confirm.jpg"></img></a>
+     <input type="submit"><img src="Resources/img/pay.png"></img></input>
         </div>
       </div>
     </fieldset>
