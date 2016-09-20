@@ -47,9 +47,9 @@
 			 <a href="AddToCart?adpid={{products.aproductId}}">
 					<img src="./Resources/img/cart.jpg" />
 				</a> 
-				 <a href="">
+			<!-- 	 <a href="">
 					<img src="./Resources/img/buy.png" />
-				</a> 
+				</a> --> 
 		
 				</div>
 		

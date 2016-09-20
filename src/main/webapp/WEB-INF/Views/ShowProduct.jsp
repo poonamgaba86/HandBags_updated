@@ -69,7 +69,7 @@ search:<input type="text" placeholder="search product" ng-model="searchprd"/>
 			<div class="col-md-6" ng-repeat="product in products|filter:searchprd" >
 			<!-- 	<div style="background-color:#E8E8E8;border-style:dotted solid double dashed;" > -->
  				 <a href="ShwPrdtInDetail?adpid={{product.aproductId}}">
-					<img src="./Resources/img/{{product.aproductId}}.jpg" height="200px" width="200px"/>
+					<img src="./Resources/img/{{product.aproductId}}.jpg" height="175px" width="175px"/>
 				</a> 
 	<!-- 	</div> -->	
 	

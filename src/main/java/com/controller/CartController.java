@@ -148,63 +148,97 @@ public class CartController {
 	public ModelAndView OrderConfirmed(HttpSession session) 
 	{
 		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
-	
-//		for(CartDetail cd:li)
-//		{
-//			cDAO.addcart(cd);
-//		}
-//		
-		
-		
-		//oDAO.addOrderDetails();
-		ModelAndView mv = new ModelAndView("PaymentConfirmed","CartDetail",new CartDetail());
+		 RegisterUser r=rdao.display((String) session.getAttribute("userid"));
+	       
+	       String email= r.getEmailId();
+	       String phon= r.getMobileNo();
+	       String addr=r.getAddress();
+	       String user= r.getFirstName();
+	       
+	       String fullAddress= user +"\t"+addr +"\t"+phon;
+	      
+	       OrderDetails d= new OrderDetails();
+			d.setPaymentMode("Debit Card");
+	       d.setUserId(session.getAttribute("userid").toString());
+	       d.setOrderDate(new Date());
+	       d.setOrderStatus("processing");
+	       
+	       String f = session.getAttribute("grandtotal").toString();
+	       
+	       d.setGrandTotal(Integer.valueOf(f));
+	       d.setAddress(fullAddress);
+	       
+	       oDAO.addOrderDetails(d);
+	       System.out.print("Order saved");
+	       int ordId=d.getOrderId();
+	       session.setAttribute("oid", ordId);
+	       for(CartDetail cd:li)
+	       {
+	    	   cd.setOrderID(ordId);
+	    	  cDAO.addcart(cd);
+	    	  System.out.print("Cart detail saved");
+	    	   
+	       }
+	       
+	       
+	       
+	       String data=oDAO.getOrderDetail(d.getOrderId());
+			ModelAndView mv= new ModelAndView("AfterConfirmed");
+			mv.addObject("data",data);
+
+
+	//	ModelAndView mv = new ModelAndView("PaymentConfirmed","CartDetail",new CartDetail());
 		
 		return mv;
 
 	}
 
 	@RequestMapping(value = "/Thanku", method = RequestMethod.POST)
-	public String Thanku(HttpSession session,HttpServletRequest request)
+	public ModelAndView Thanku(HttpSession session,HttpServletRequest request)
 	{
 		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
-		 RegisterUser r=rdao.display((String) session.getAttribute("userid"));
-       
-       String email= r.getEmailId();
-       String phon= r.getMobileNo();
-       String addr=r.getAddress();
-       String user= r.getFirstName();
-       
-       String fullAddress= user +"\t"+addr +"\t"+phon;
-      
-       OrderDetails d= new OrderDetails();
-		d.setPaymentMode("Cash on Delivery");
-       d.setUserId(session.getAttribute("userid").toString());
-       d.setOrderDate(new Date());
-       d.setOrderStatus("processing");
-       
-       String f = session.getAttribute("grandtotal").toString();
-       
-       d.setGrandTotal(Integer.valueOf(f));
-       d.setAddress(fullAddress);
-       
-       oDAO.addOrderDetails(d);
-       System.out.print("Order saved");
-       int ordId=d.getOrderId();
-       for(CartDetail cd:li)
-       {
-    	   cd.setOrderID(ordId);
-    	  cDAO.addcart(cd);
-    	  System.out.print("Cart detail saved");
-    	   
-       }
-       
-       
-       
-        
+//		 RegisterUser r=rdao.display((String) session.getAttribute("userid"));
+//       
+//       String email= r.getEmailId();
+//       String phon= r.getMobileNo();
+//       String addr=r.getAddress();
+//       String user= r.getFirstName();
+//       
+//       String fullAddress= user +"\t"+addr +"\t"+phon;
+//      
+//       OrderDetails d= new OrderDetails();
+//		d.setPaymentMode("Debit Card");
+//       d.setUserId(session.getAttribute("userid").toString());
+//       d.setOrderDate(new Date());
+//       d.setOrderStatus("processing");
+//       
+//       String f = session.getAttribute("grandtotal").toString();
+//       
+//       d.setGrandTotal(Integer.valueOf(f));
+//       d.setAddress(fullAddress);
+//       
+//       oDAO.addOrderDetails(d);
+//       System.out.print("Order saved");
+//       int ordId=d.getOrderId();
+//       for(CartDetail cd:li)
+//       {
+//    	   cd.setOrderID(ordId);
+//    	  cDAO.addcart(cd);
+//    	  System.out.print("Cart detail saved");
+//    	   
+//       }
+//       
+//       
+//       
+//       String data=oDAO.getOrderDetail(d.getOrderId());
+			ModelAndView v= new ModelAndView("ThankuPage","OrderDetail",new OrderDetails());
+//		v.addObject("data",data);
+	//	System.out.println(data);
+		return v ;
 		
 
 		
-		return "/ThankuPage";
+		
 
 	}
 
@@ -227,8 +261,7 @@ public class CartController {
 	public String updateqty(@RequestParam("qty")int qty,@RequestParam("pid")int pid,HttpSession session,Model m) 
 	{
 
-//		System.out.println("Quantity:"+qty);
-//		System.out.println("Product ID:"+pid);
+
 		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
 		ListIterator<CartDetail> lit = (ListIterator<CartDetail>) li.listIterator();
 		while (lit.hasNext()) 
@@ -254,6 +287,22 @@ public class CartController {
 		// System.out.println(session.getAttribute("cart"));
 		return "Cart";
 
+	}
+
+	@RequestMapping(value = "/Last", method = RequestMethod.GET)
+	public ModelAndView lastpage(HttpSession session)
+	{
+		ArrayList<CartDetail> li = (ArrayList<CartDetail>) session.getAttribute("mycart");
+	
+      
+      int oid=(Integer)session.getAttribute("oid");
+		OrderDetails d= new OrderDetails();
+      String data=oDAO.getOrderDetail(oid);
+			ModelAndView v= new ModelAndView("Last","OrderDetail",new OrderDetails());
+		v.addObject("data",data);
+
+		return v ;
+		
 	}
 
 }

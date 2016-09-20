@@ -12,7 +12,7 @@
   </servlet-mapping>
   <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/Hibernatecfg.xml,/WEB-INF/SecurityImpl.xml</param-value>
+		<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/Hibernatecfg.xml,/WEB-INF/SecurityImpl.xml,/WEB-INF/WebFlowConfig.xml</param-value>
 </context-param>
   <listener>
 		<listener-class>

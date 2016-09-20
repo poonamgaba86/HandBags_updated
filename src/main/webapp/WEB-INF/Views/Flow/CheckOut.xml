@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	
+	<view-state id="collectCustomerInfo" view="PaymentConfirmed.jsp"	>
+		<transition on="submit" to="endState" />
+	</view-state>
+
+<!--  	<view-state id="Collectpayment" view="yourjsppagename.jsp">
+		<transition on="edit" to="collectCustomerInfo" />
+		<transition on="submit" to="endState" />
+	</view-state> -->
+	<end-state id="endState" view="ThankuPage.jsp"/>
+	<global-transitions>
+		<transition on="cancel" to="cancelCheckout" />
+	</global-transitions>
+</flow>

@@ -27,11 +27,11 @@
 
                                 
                             <div class="input-group">
-                                      <div class="checkbox">
+                            <!--           <div class="checkbox">
                                         <label>
                                           <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
                                         </label>
-                                      </div>
+                                      </div>  -->
                                     </div>
 
 
@@ -47,12 +47,12 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 control">
-                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                  <!--       <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account! 
                                         <a href="Register" onClick="$('#loginbox').hide(); $('#signupbox').show()">
                                             Sign Up Here
                                         </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>    
                             </form>     

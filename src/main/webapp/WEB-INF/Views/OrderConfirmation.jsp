@@ -22,7 +22,8 @@
 	<form:form class="form-horizontal" method="post" action=""
 		commandName="CartDetail" enctype="multipart/form-data">
 		<div ng-app="repeatSample" ng-controller="repeatController">
-
+		<center>		<h2>Kindly Confirm Your Order</h2></center>
+		<br><br>
 			<table class="table table-bordered table-hover table-striped">
 				<tr>
 					<th>Image</th>
@@ -56,13 +57,13 @@
 			</div>
 		</div>
 		
+		
 		<br>
-		<br>
-		<br>
-	<b>	Customer Information</b>
+	<h2>Your Details,Kindly Verify</h2>
+	<div class="container">
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
-				<div class="form-group">
+			<!-- 	<div class="form-group"> -->
 					<table  class="table table-bordered">
 						<tr>
 							<td>First Name :</td>
@@ -96,11 +97,13 @@
 
 				</div>
 			</div>
-		</div>
-	</form:form>
-	<div class="pull-right">
+			<div class="pull-right" class="col-xs-6 col-sm-6 col-md-6">
 		<a href="OrderConfirmed"><img src="Resources/img/confirm.jpg"></img></a>
 	</div>
+		</div>
+<!-- 	</form:form> -->
+	
+</div>
 </div>
 
 <%@include file="CommonFooter.jsp"%>
